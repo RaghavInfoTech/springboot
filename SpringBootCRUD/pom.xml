@@ -4,11 +4,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.info.learn</groupId>
-	<artifactId>SpringBootCRUDCollections</artifactId>
+	<artifactId>SpringBootCRUD</artifactId>
 	<version>0.0.1</version>
 	<packaging>jar</packaging>
 
-	<name>SpringBootCRUDCollections</name>
+	<name>SpringBootCRUD</name>
 	<description>Spring Boot Demo project using collections</description>
 
 	<parent>
