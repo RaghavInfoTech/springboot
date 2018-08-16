@@ -8,6 +8,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * DAO class where business logic is handled here.
+ * Data is collected /saved into Simple HashMap
+ *
+ * @author Raghava
+ */
 @Component
 public class BookDao {
 
