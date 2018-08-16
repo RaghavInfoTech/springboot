@@ -5,6 +5,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.io.Serializable;
 
+/**
+ * Sample Book object with two properties
+ * @author Raghava
+ */
 public class Book implements Serializable {
 
     private int id;

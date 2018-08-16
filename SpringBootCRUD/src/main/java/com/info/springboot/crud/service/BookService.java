@@ -7,6 +7,11 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * Service class , provides  service to all REST APIs and calls DAO layer
+ *
+ * @author Raghava
+ */
 @Service
 public class BookService {
 
