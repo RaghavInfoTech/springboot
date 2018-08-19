@@ -1,5 +1,7 @@
 package com.info.springboot.crud.app;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
@@ -20,15 +22,19 @@ import com.info.springboot.crud.service.BookService;
 @EntityScan("com.info.springboot.crud.entity")
 @EnableJpaRepositories("com.info.springboot.crud.dao")
 
-public class MyFirstSpringBootApplication {
+public class MySpringBootApplication {
 
+	private static Logger LOG = LoggerFactory.getLogger(MySpringBootApplication.class);
 	public static void main(String[] args) {
 
-		ApplicationContext applicationContext =  SpringApplication.run(MyFirstSpringBootApplication.class, args);
+		ApplicationContext applicationContext =  SpringApplication.run(MySpringBootApplication.class, args);
         BookService appService= applicationContext.getBean("bookService",BookService.class);
         Book book = new Book(1,"Maths");
         appService.createBook(book);
-		System.out.println("Started Application...");
+	LOG.info("****************************************************************************************");
+	LOG.info("*****************************Application Stated*****************************************");
+	LOG.info("****************************************************************************************");
+	
 	}
 
 }
