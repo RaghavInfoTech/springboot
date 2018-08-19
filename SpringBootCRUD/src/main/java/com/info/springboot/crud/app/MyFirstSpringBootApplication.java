@@ -1,11 +1,13 @@
 package com.info.springboot.crud.app;
 
-import com.info.springboot.crud.entity.Book;
-import com.info.springboot.crud.service.BookService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.ComponentScan;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+
+import com.info.springboot.crud.entity.Book;
+import com.info.springboot.crud.service.BookService;
 
 /**
  * MyFirstSpringBootApplication to start Spring boot application.
@@ -13,8 +15,11 @@ import org.springframework.context.annotation.ComponentScan;
  *
  * @author Raghava
  */
-@SpringBootApplication
-@ComponentScan(value ="com" )
+@SpringBootApplication(scanBasePackages= "com")
+//@ComponentScan(value ="com" )
+@EntityScan("com.info.springboot.crud.entity")
+@EnableJpaRepositories("com.info.springboot.crud.dao")
+
 public class MyFirstSpringBootApplication {
 
 	public static void main(String[] args) {
