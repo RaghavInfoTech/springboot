@@ -1,11 +1,18 @@
 package com.info.springboot.crud.controller;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
 import com.info.springboot.crud.entity.Book;
 import com.info.springboot.crud.service.BookService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 /**
  * RESTCOntroller class  - All Sample REST APIs are defined here and
@@ -20,6 +27,7 @@ public class BookController {
     @Autowired
     private BookService service;
 
+    
     @RequestMapping(value = "/app", method = RequestMethod.GET)
     public String greet() {
         return service.greet();
@@ -49,4 +57,5 @@ public class BookController {
     public void deleteBook(@PathVariable(value = "bookId") Integer bookId) {
         service.deleteBook(bookId);
     }
+    
 }
