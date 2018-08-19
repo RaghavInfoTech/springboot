@@ -2,6 +2,8 @@ package com.info.springboot.crud.controller;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,24 +25,25 @@ import com.info.springboot.crud.service.TicketService;
 @RestController
 @RequestMapping(value = "/ticket")
 public class TicketController {
-
+	private static Logger LOG = LoggerFactory.getLogger(TicketController.class);
 	@Autowired
 	private TicketService service;
 
 	@RequestMapping(value = "/ticket", method = RequestMethod.POST)
 	public Ticket bookTicket(@RequestBody Ticket ticket) {
+		LOG.info("TicketController book ticket"+ticket);
 		return service.bookTicket(ticket);
 	}
 
 	@GetMapping(value = "/ticket/{ticketId}")
 	public Ticket getTicket(@PathVariable("ticketId") Integer ticketId) {
-
+		LOG.trace("TicketController get ticket"+ticketId);
 		return service.getTicket(ticketId);
 	}
 
 	@GetMapping(value = "/ticket/")
 	public List<Ticket> getAllTicket() {
-
+		LOG.trace("TicketController get all tickets");
 		return service.getAllTickets();
 	}
 
@@ -51,6 +54,7 @@ public class TicketController {
 
 	@DeleteMapping(value = "/ticket/{ticketId}")
 	public void deleteTicket(@PathVariable("ticketId") Integer ticketId) {
+		LOG.trace("TicketController delete ticket "+ticketId);
 		service.deleteTicket(ticketId);
 	}
 }
