@@ -17,14 +17,14 @@ public class SwaggerConfig {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("com.info.springboot.crud.controller"))
-                .paths(PathSelectors.regex("/.*"))
+                .paths(PathSelectors.regex("/ticket.*"))
                 .build()
                 .apiInfo(metaData());
     }
     private ApiInfo metaData() {
         ApiInfo apiInfo = new ApiInfo(
                 "Spring Boot REST APIs",
-                "Spring Boot REST API for CRUD Operatins using Java colletions",
+                "Spring Boot REST API for CRUD Operatins using Debry internal db",
                 "1.0",
                 "Terms of service",
                 new Contact("Raghava Reddy", "http://linkedin.com/in/raghava-reddy-a50a6b43", "raghavareddy.dcn@gmail.com"),

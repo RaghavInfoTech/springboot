@@ -1,5 +1,7 @@
 /target/
+/ApplicationLogs
 /.classpath
 /.idea/
 /.project
 /.settings/
+/.springBeans
