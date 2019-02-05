@@ -40,16 +40,12 @@ import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.Primary;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.EventListener;
-import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.transaction.PlatformTransactionManager;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
-@EnableScheduling
 @ComponentScan("com.info.springboot")
 @EnableIgniteRepositories(basePackages = { "com.info.springboot" })
 @ImportResource("classpath:ignite-client-conf.xml")
-@EnableTransactionManagement
 public class IgniteClientConfig {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(IgniteClientConfig.class);
@@ -68,7 +64,6 @@ public class IgniteClientConfig {
 		final SpringTransactionManager springTransactionManager = new SpringTransactionManager() {
 			@Override
 			public void afterPropertiesSet() throws Exception {
-				// Do nothing..
 			}
 
 			/**
@@ -80,7 +75,6 @@ public class IgniteClientConfig {
 				super.afterPropertiesSet();
 			}
 		};
-		// Use default grid client instance created..
 		springTransactionManager.setTransactionConcurrency(TransactionConcurrency.PESSIMISTIC);
 		return springTransactionManager;
 	}
