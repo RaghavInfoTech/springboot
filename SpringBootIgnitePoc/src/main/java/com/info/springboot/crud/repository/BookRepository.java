@@ -11,7 +11,7 @@ import com.info.springboot.crud.entity.Book;
 
 @Lazy
 @RepositoryConfig(cacheName = "BookCache") 
-public interface FabricInfoRepository extends IgniteRepository<Book, Integer> {
+public interface BookRepository extends IgniteRepository<Book, Integer> {
 	
 	
 }
