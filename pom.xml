@@ -20,6 +20,7 @@
 	<modules>
 		<module>SpringBootCRUDCollections</module>
 		<module>SpringBootCRUDDerby</module>
+		<module>SpringBootIgnitePoc</module>
   </modules>
    
   <build>
