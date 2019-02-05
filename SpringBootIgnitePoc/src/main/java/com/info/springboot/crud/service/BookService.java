@@ -2,11 +2,13 @@ package com.info.springboot.crud.service;
 
 import java.util.List;
 
+import org.apache.ignite.IgniteSpringBean;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
-import com.info.springboot.crud.dao.BookDao;
 import com.info.springboot.crud.entity.Book;
+import com.info.springboot.crud.repositories.BookRepository;
 
 /**
  * Service class , provides  service to all REST APIs and calls DAO layer
@@ -16,31 +18,36 @@ import com.info.springboot.crud.entity.Book;
 @Service
 public class BookService {
 
-    @Autowired
-    private BookDao bookDao;
 
+    @SuppressWarnings("unused")
+	@Autowired
+    private IgniteSpringBean igniteSpringBean;
+    @Autowired
+    @Lazy
+    private BookRepository bookCache;
 
     public String greet() {
         return "Hello";
     }
 
     public Book createBook(Book book) {
-        return bookDao.save(book);
+    	Book save = bookCache.save(book.getId(), book);
+        return save;
     }
 
 
     public Book getBook(Integer id) {
-        return bookDao.findById(id);
+        return bookCache.findOne(id);
     }
     public List<Book> getAllBooks(){
-        return bookDao.findAll();
+        return (List<Book>) bookCache.findAll();
     }
 
     public Book updateBook(Book book) {
-        return bookDao.update(book);
+        return bookCache.save(book.getId(), book);
     }
 
     public void deleteBook(Integer bookId) {
-        bookDao.delete(bookId);
+    	bookCache.delete(bookId);
     }
 }

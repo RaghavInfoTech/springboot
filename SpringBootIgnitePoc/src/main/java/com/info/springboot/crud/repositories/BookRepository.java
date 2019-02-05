@@ -1,4 +1,4 @@
-package com.info.springboot.crud.repository;
+package com.info.springboot.crud.repositories;
 
 
 import org.apache.ignite.springdata.repository.IgniteRepository;
@@ -11,7 +11,8 @@ import com.info.springboot.crud.entity.Book;
 
 @Lazy
 @RepositoryConfig(cacheName = "BookCache") 
-public interface BookRepository extends IgniteRepository<Book, Integer> {
+public interface BookRepository extends IgniteRepository<Book, Integer>, BookRepositoryCustom {
+	
 	
 	
 }
