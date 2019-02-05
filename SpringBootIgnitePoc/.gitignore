@@ -1,0 +1,8 @@
+/target/
+/ApplicationLogs
+/.classpath
+/.idea/
+/.project
+/.settings/
+/derby.log
+/.springBeans
