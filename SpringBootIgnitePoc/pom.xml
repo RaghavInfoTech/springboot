@@ -66,16 +66,12 @@
 			<artifactId>jdom</artifactId>
 			<version>1.1</version>
 		</dependency>
-		<!-- <dependency> <groupId>dcm.common</groupId> <artifactId>webservices</artifactId> 
-			<version>1.0.0</version> </dependency> -->
 		<dependency>
 			<groupId>dcm.service.shared</groupId>
 			<artifactId>assets-shared</artifactId>
 			<version>1.0.0</version>
 		</dependency>
 
-		<!-- <dependency> <groupId>dcm.common</groupId> <artifactId>ignite-client</artifactId> 
-			<version>1.0.0</version> </dependency> -->
 		<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger-ui</artifactId>
@@ -148,8 +144,8 @@
 							<goal>repackage</goal>
 						</goals>
 						<configuration>
-							<mainClass>com.brocade.dcm.Application</mainClass>
-							<finalName>assets-middleware-service-${project.version}</finalName>
+							<mainClass>com.info.springboot.crud.app.MyApplication</mainClass>
+							<finalName>ignite-service-${project.version}</finalName>
 							<outputDirectory>target</outputDirectory>
 							<classifier>exec</classifier>
 						</configuration>

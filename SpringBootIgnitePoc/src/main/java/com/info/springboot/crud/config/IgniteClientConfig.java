@@ -27,20 +27,11 @@ l * UNPUBLISHED SOURCE CODE
 package com.info.springboot.crud.config;
 
 import org.apache.ignite.springdata.repository.config.EnableIgniteRepositories;
-import org.apache.ignite.transactions.TransactionConcurrency;
-import org.apache.ignite.transactions.spring.SpringTransactionManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.DependsOn;
 import org.springframework.context.annotation.ImportResource;
-import org.springframework.context.annotation.Lazy;
-import org.springframework.context.annotation.Primary;
-import org.springframework.context.event.ContextRefreshedEvent;
-import org.springframework.context.event.EventListener;
-import org.springframework.transaction.PlatformTransactionManager;
 
 @Configuration
 @ComponentScan("com.info.springboot")
@@ -55,7 +46,7 @@ public class IgniteClientConfig {
 
 	/**
 	 * @return
-	 */
+	 *//*
 	@Bean
 	@DependsOn("igniteInstance")
 	@Primary
@@ -66,9 +57,9 @@ public class IgniteClientConfig {
 			public void afterPropertiesSet() throws Exception {
 			}
 
-			/**
+			*//**
 			 * @param event
-			 */
+			 *//*
 			@EventListener
 			public void handleContextRefresh(final ContextRefreshedEvent event) throws Exception {
 				LOGGER.info("Setting up tx support..");
@@ -78,5 +69,5 @@ public class IgniteClientConfig {
 		springTransactionManager.setTransactionConcurrency(TransactionConcurrency.PESSIMISTIC);
 		return springTransactionManager;
 	}
-
+*/
 }
