@@ -1,0 +1,27 @@
+Set-ExecutionPolicy RemoteSigned 
+
+$directory  = Read-Host -Prompt 'Enter directory location'
+if ( $directory -eq "" ) {
+  Write-Host "Location should not be empty. Exiting..."
+  exit
+}
+
+$directoryExists = Test-Path -Path $directory
+if ( $directoryExists -eq $False ) {
+  Write-Host "Please enter a valid directory. Exiting..." 
+  exit
+}
+
+$extension = Read-Host -Prompt 'Enter file extension'
+if ( $extension -eq "" ) {
+  Write-Host "Extension should not be empty. Exiting..."
+  exit
+}
+
+$criteria = Read-Host -Prompt 'Enter search criteria'
+if ( $criteria -eq "" ) {
+  Write-Host "Search criteria should not be empty. Exiting..."
+  exit
+}
+
+Select-String -Path $directory\*.$extension -Pattern $criteria
